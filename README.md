@@ -27,7 +27,8 @@
   -1:未有动作; ### 该值是默认的，其他模块无需发此状态
   1:开始自动建图; ### 发此值之前/auto_explore_mapping/state是0，
                 ### 发完之后/auto_explore_mapping/state变成1，随后变成2.
-  2:停止自动建图; ### 发此值之前/auto_explore_mapping/state是2， 
-                ### 发完之后/auto_explore_mapping/state变成3.
+  3:停止自动建图; ### 发此值之前/auto_explore_mapping/state是2， 
+                ### 发完之后/auto_explore_mapping/state变成3，随后变成0，待机下次自动建图
   5：保存当前地图; ###发此值之前/auto_explore_mapping/state是2.
+                 ###发此值之后/auto_explore_mapping/state是2.
 ```
