@@ -24,7 +24,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'auto_explore_mapping_pub = node_mgmt.auto_explore_mapping_pub:main'
+            'auto_explore_mapping_pub = node_mgmt.auto_explore_mapping_nm:main',
+            'pubsub_nm_test = node_mgmt.pubsub_nm_test:main',
         ],
     },
 )

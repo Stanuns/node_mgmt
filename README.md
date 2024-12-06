@@ -10,11 +10,10 @@
 
 ```bashrc
    -1:未初始化; 
-   0:已初始化未开始;
-   1:开始自动建图; 
+   0:已初始化未开始; 
+   1:开始自动建图；
    2:建图中; 
-   3:建图完成并保存最终地图; 
-   4:停止自动建图;
+   3:停止自动建图;
 ```
 
 ### 1.2 对自动探索建图模块进行控制
@@ -26,9 +25,9 @@
 
 ```bashrc
   -1:未有动作; ### 该值是默认的，其他模块无需发此状态
-  1:开始自动建图; ### 发此值之前/auto_explore_mapping/state是-1，
-                ### 发完之后/auto_explore_mapping/state变成0，接着变成1，最后变成2.
-  4:停止自动建图; ### 发此值之前/auto_explore_mapping/state是2， 
-                ### 发完之后/auto_explore_mapping/state变成4，接着变成-1.
+  1:开始自动建图; ### 发此值之前/auto_explore_mapping/state是0，
+                ### 发完之后/auto_explore_mapping/state变成1，随后变成2.
+  2:停止自动建图; ### 发此值之前/auto_explore_mapping/state是2， 
+                ### 发完之后/auto_explore_mapping/state变成3.
   5：保存当前地图; ###发此值之前/auto_explore_mapping/state是2.
 ```
