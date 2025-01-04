@@ -32,3 +32,39 @@
   5：保存当前地图; ###发此值之前/auto_explore_mapping/state是2.
                  ###发此值之后/auto_explore_mapping/state是2.
 ```
+
+## 2. 利用cartographer_ros 提供的接口进行建图功能的启停
+
+[reference](https://google-cartographer-ros.readthedocs.io/en/latest/ros_api.html?highlight=start_trajectory)
+
+[注意：该方法没有解决关闭重启建图之后，map数据重叠的问题](https://github.com/ros2/cartographer_ros/issues/69)
+
+### 2.1 查询trajectory_id, 判断哪一个trajectory_id是Active, 需要关闭的是Active的trajectory
+
+查看service msg代表的意义
+
+```
+ros2 interface show cartographer_ros_msgs/srv/GetTrajectoryStates
+```
+
+查看各个trajectory的状态
+
+```bashrc
+ros2 service call /get_trajectory_states cartographer_ros_msgs/srv/GetTrajectoryStates
+```
+
+### 2.2 关闭建图
+
+```bashrc
+ros2 service call /finish_trajectory cartographer_ros_msgs/srv/FinishTrajectory "{trajectory_id: 0}"
+```
+
+### 2.3 打开建图
+
+```bashrc
+ros2 service call /start_trajectory cartographer_ros_msgs/srv/StartTrajectory "{configuration_directory: '/home/sunwei/robot_ws/install/open_source_slam_launch/share/open_source_slam_launch/config/', configuration_basename: 'cartographer_mapping.lua', use_initial_pose: true, initial_pose: {position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}, relative_to_trajectory_id: 0}"
+```
+
+```
+
+```
